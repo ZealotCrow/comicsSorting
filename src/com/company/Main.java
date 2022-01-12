@@ -11,9 +11,9 @@ public class Main {
 
         Scanner comics = new Scanner(System.in);
         String comicName;
-        String numOfComics;
+        int numOfComics;
 
-        Map<String,String> comicStats = new HashMap<>();
+        Map<String,Integer> comicStats = new TreeMap<>();
 
         boolean done = false;
         while(!done){
@@ -21,13 +21,17 @@ public class Main {
             String input = comics.next().toUpperCase();
 
             if (input.equals("A")){
-                System.out.println("Please enter the Name and the number of the comics you wish to archive.");
+                //The objective of this wrapper is to add the entries to the list
+                System.out.println("Please enter the Name of the comics you wish to archive.");
                 comicName = comics.next();
-                numOfComics = comics.next();
+                System.out.println("Please enter the number of the comics you would like to archive");
+                numOfComics = comics.nextInt();
                 comicStats.put(comicName,numOfComics);
             }
             else if (input.equals("D")){
+                //The goal of this wrapper is to display the added parts of the list as well as the Sorted list
                 System.out.println(comicStats);
+                System.out.println(comicStats.);
             }
             else if (input.equals("Q")){
                 done = true;
