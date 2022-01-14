@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.*;
+import java.util.TreeMap;
+import java.util.HashMap;
 
 
 public class Main {
@@ -11,27 +13,35 @@ public class Main {
 
         Scanner comics = new Scanner(System.in);
         String comicName;
-        int numOfComics;
+        int numOfComics = 0;
 
         Map<String,Integer> comicStats = new TreeMap<>();
 
         boolean done = false;
         while(!done){
-            System.out.println("A)dd D)isplay Q)uit");
+            System.out.println("A)dd D)isplay R)emove Q)uit");
             String input = comics.next().toUpperCase();
 
             if (input.equals("A")){
                 //The objective of this wrapper is to add the entries to the list
                 System.out.println("Please enter the Name of the comics you wish to archive.");
                 comicName = comics.next();
+
                 System.out.println("Please enter the number of the comics you would like to archive");
                 numOfComics = comics.nextInt();
                 comicStats.put(comicName,numOfComics);
             }
             else if (input.equals("D")){
-                //The goal of this wrapper is to display the added parts of the list as well as the Sorted list
+                //The goal of this wrapper is to display the added parts of the list as well as the Sorted lists
                 System.out.println(comicStats);
-                System.out.println(comicStats.);
+                System.out.println(comicStats.values().stream().mapToInt(Integer::intValue).sum());
+            }
+            else if(input.equals("R")){
+                System.out.println("Please enter the comics that you wish to remove from the archive");
+                comicName = comics.next();
+                comicStats.remove(comicName);
+                numOfComics = comics.nextInt();
+                comicStats.remove(numOfComics);
             }
             else if (input.equals("Q")){
                 done = true;
