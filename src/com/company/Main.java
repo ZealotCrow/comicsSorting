@@ -4,15 +4,14 @@ import java.util.*;
 import java.util.TreeMap;
 import java.util.HashMap;
 
-
 public class Main {
 
     public static void main(String[] args) {
         System.out.println("Welcome To Asshurbanipal");
         System.out.println("How shall we archive your treasure today?");
 
-        Scanner comics = new Scanner(System.in);
-        String comicName;
+        Scanner comics = new Scanner(System.in).useDelimiter("\n");
+        String comicName = "";
         int numOfComics = 0;
 
         Map<String,Integer> comicStats = new TreeMap<>();
@@ -25,8 +24,7 @@ public class Main {
             if (input.equals("A")){
                 //The objective of this wrapper is to add the entries to the list
                 System.out.println("Please enter the Name of the comics you wish to archive.");
-                comicName = comics.next();
-
+                 comicName = comics.next();
                 System.out.println("Please enter the number of the comics you would like to archive");
                 numOfComics = comics.nextInt();
                 comicStats.put(comicName,numOfComics);
@@ -40,8 +38,6 @@ public class Main {
                 System.out.println("Please enter the comics that you wish to remove from the archive");
                 comicName = comics.next();
                 comicStats.remove(comicName);
-                numOfComics = comics.nextInt();
-                comicStats.remove(numOfComics);
             }
             else if (input.equals("Q")){
                 done = true;
