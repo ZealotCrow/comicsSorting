@@ -1,5 +1,6 @@
 package com.company;
 
+import java.sql.SQLOutput;
 import java.util.*;
 import java.util.TreeMap;
 import java.util.HashMap;
@@ -10,10 +11,11 @@ public class Main {
         System.out.println("Welcome To Asshurbanipal");
         System.out.println("How shall we archive your treasure today?");
 
+        //The use of the delimiter allows the user to use spaces when inputting answers
         Scanner comics = new Scanner(System.in).useDelimiter("\n");
         String comicName = "";
         int numOfComics = 0;
-
+        //May be able to output in columns if TreeMap is changed
         Map<String,Integer> comicStats = new TreeMap<>();
 
         boolean done = false;
@@ -28,6 +30,7 @@ public class Main {
                 System.out.println("Please enter the number of the comics you would like to archive");
                 numOfComics = comics.nextInt();
                 comicStats.put(comicName,numOfComics);
+
             }
             else if (input.equals("D")){
                 //The goal of this wrapper is to display the added parts of the list as well as the Sorted lists
